@@ -48,6 +48,18 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FormFactory, Version=2.0.125.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FormFactory.2.0.125\lib\net451\FormFactory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FormFactory.AspMvc, Version=1.0.6259.22483, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FormFactory.AspMvc.2.0.125\lib\net451\FormFactory.AspMvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FormFactory.Templates, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FormFactory.Templates.2.0.125\lib\net451\FormFactory.Templates.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.7\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -83,6 +95,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.4.1.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.4.1\lib\net45\RazorEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -205,6 +221,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ReportAbuser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -213,6 +230,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FormFactory\FormFactory.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -231,6 +249,9 @@
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap3-typeahead.js" />
+    <Content Include="Scripts\bootstrap3-typeahead.unobtrusive.js" />
+    <Content Include="Scripts\FormFactory\FormFactory.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -238,6 +259,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.dynamic.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -246,6 +268,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Shared\FormFactory\_README.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -280,6 +303,36 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Xml.Linq.XElement.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.TimeSpan.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.String.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Object.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Int64.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Int32.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Enum.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Double.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Decimal.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.DateTimeOffset.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.DateTime.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.System.Boolean.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.IEnumerable.System.Object.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.IEnumerable.System.Enum.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.ICollection.System.Object.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.FormFactory.Components.SubmitButton.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.FormFactory.Components.Navbar.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Property.FormFactory.AspMvc.UploadedFiles.UploadedFile.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Form.Property.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Form.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.TimeSpan.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.String.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.Object.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.Int64.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.Int32.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.Enum.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.Double.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.Decimal.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.DateTimeOffset.cshtml" />
+    <Content Include="Views\Shared\FormFactory\Cell.System.DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
