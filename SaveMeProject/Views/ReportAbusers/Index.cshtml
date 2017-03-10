@@ -1,0 +1,159 @@
+﻿@model IEnumerable<SaveMeProject.Models.ReportAbuser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shelter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abandoned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poisoned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Underweight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trapping)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Water)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Injury)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abuse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Other)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbuseDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AbuserDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReportEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReportPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updates)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shelter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abandoned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poisoned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Underweight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trapping)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Water)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Injury)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abuse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Other)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbuseDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AbuserDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReportEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReportPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updates)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReportID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReportID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReportID })
+        </td>
+    </tr>
+}
+
+</table>

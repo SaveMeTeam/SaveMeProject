@@ -29,5 +29,7 @@ namespace SaveMeProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<SaveMeProject.Models.ReportAbuser> ReportAbusers { get; set; }
     }
 }
