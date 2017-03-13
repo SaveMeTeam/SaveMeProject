@@ -258,6 +258,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap3-typeahead.js" />
     <Content Include="Scripts\bootstrap3-typeahead.unobtrusive.js" />
+    <Content Include="Scripts\FormFactory\FormFactory.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -310,6 +311,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ReportAbusers\Create.cshtml" />
+    <Content Include="Views\ReportAbusers\Delete.cshtml" />
+    <Content Include="Views\ReportAbusers\Details.cshtml" />
+    <Content Include="Views\ReportAbusers\Edit.cshtml" />
+    <Content Include="Views\ReportAbusers\Index.cshtml" />
     <Content Include="Views\Shared\FormFactory\Property.System.Xml.Linq.XElement.cshtml" />
     <Content Include="Views\Shared\FormFactory\Property.System.TimeSpan.cshtml" />
     <Content Include="Views\Shared\FormFactory\Property.System.String.cshtml" />
@@ -340,11 +346,6 @@
     <Content Include="Views\Shared\FormFactory\Cell.System.Decimal.cshtml" />
     <Content Include="Views\Shared\FormFactory\Cell.System.DateTimeOffset.cshtml" />
     <Content Include="Views\Shared\FormFactory\Cell.System.DateTime.cshtml" />
-    <Content Include="Views\ReportAbusers\Create.cshtml" />
-    <Content Include="Views\ReportAbusers\Delete.cshtml" />
-    <Content Include="Views\ReportAbusers\Details.cshtml" />
-    <Content Include="Views\ReportAbusers\Edit.cshtml" />
-    <Content Include="Views\ReportAbusers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
