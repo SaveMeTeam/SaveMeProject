@@ -223,6 +223,14 @@
     <Compile Include="Migrations\201703101524133_Rearrangedfields.Designer.cs">
       <DependentUpon>201703101524133_Rearrangedfields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703101654568_multilinetext.cs" />
+    <Compile Include="Migrations\201703101654568_multilinetext.Designer.cs">
+      <DependentUpon>201703101654568_multilinetext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703101912180_multiline.cs" />
+    <Compile Include="Migrations\201703101912180_multiline.Designer.cs">
+      <DependentUpon>201703101912180_multiline.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -237,6 +245,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FormFactory\FormFactory.css" />
+    <Content Include="Content\images\Saveme %281%29.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormFactory\FormFactory.js" />
@@ -361,6 +370,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703101524133_Rearrangedfields.resx">
       <DependentUpon>201703101524133_Rearrangedfields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101654568_multilinetext.resx">
+      <DependentUpon>201703101654568_multilinetext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101912180_multiline.resx">
+      <DependentUpon>201703101912180_multiline.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
