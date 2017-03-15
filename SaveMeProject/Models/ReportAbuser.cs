@@ -30,7 +30,9 @@ namespace SaveMeProject.Models
         public bool Shot { get; set; }
         public bool Injury { get; set; }
         public bool Abuse { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Other { get; set; }
+
 
         [Display(Name ="Enter type and number of animal(s)")]
         [Placeholder("Ex. 3 cats, 2 dogs")]
@@ -39,20 +41,22 @@ namespace SaveMeProject.Models
 
         [Required]
         [Display(Name ="Describe the property")]
+        [DataType(DataType.MultilineText)]
         public string PropertyDescription { get; set; }
         [Display(Name ="Describe the abuser(s)")]
+        [DataType(DataType.MultilineText)]
         public string AbuserDescription { get; set; }
-        [Display(Name ="Name of abuser")]
+        [Display(Name ="Name of abuser(s)")]
+        [DataType(DataType.MultilineText)]
         public string OwnerName { get; set; }
 
-        [Display(Name ="Your name")]
+        [Display(Name ="Name")]
         public string FullName { get; set; }
         [Display(Name ="Email address")]
         [DataType(DataType.EmailAddress)]
         public string ReportEmail { get; set; }
         [Display(Name ="Phone number")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
         public string ReportPhone { get; set; }
         [Display(Name ="May we contact you for more information?")]
         public bool Contact { get; set; }

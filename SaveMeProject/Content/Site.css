@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
+.form-control {
+    display:inline-block
+}
