@@ -4,8 +4,59 @@
     ViewBag.Title = "Create";
 }
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRa9eyYslzo7LNWf7OhxUVY0hAcrw4Qts" type="text/javascript"></script>
+
 <h2>Create</h2>
 
+<div id="map_canvas" style="height: 200px; width: 300px;"></div>
+
+<script type="text/javascript" language="JavaScript">
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (p) {
+                var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+                var mapOptions = {
+                    center: LatLng,
+                    zoom: 13,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+                };
+
+                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+                var marker = new google.maps.Marker({
+                    position: LatLng,
+                    map: map,
+                    title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+                });
+                google.maps.event.addListener(marker, "click", function (e) {
+                    var infoWindow = new google.maps.InfoWindow();
+                    infoWindow.setContent(marker.title);
+                    infoWindow.open(map, marker);
+                });
+                //document.getElementById("LatBar").innerHTML = p.coords.latitude
+                //document.getElementById("LonBar").innerHTML = p.coords.longitude
+                ViewBag.latitude = p.coords.latitude
+                ViewBag.longitude = p.coords.longitude
+                function SetTextBoxValue() {
+                    document.getElementById('txtDes').value = "bob";
+                }
+
+
+            });
+        } else {
+            alert('Geo Location feature is not supported in this browser.');
+        }
+        function SetTextBoxValue() {
+            // document.getElementById('txtDes').value = 
+            navigator.geolocation.getCurrentPosition(function (point) {
+                var LatLng = new google.maps.LatLng(point.coords.latitude, point.coords.longitude);
+                var Lat = point.coords.latitude
+                var Lng = point.coords.longitude
+                document.getElementById('txtLat').value = Lat.toFixed(4)
+                document.getElementById('txtLng').value = Lng.toFixed(4)
+            });
+        }
+
+</script>
 
 @using (Html.BeginForm())
 {
@@ -16,6 +67,10 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+
+        <button type="button" onclick="Javascript:SetTextBoxValue()">
+            Set the Value
+        </button>
         <!--Dropdown starts here-->
 
         <div class="form-group">
@@ -30,7 +85,6 @@
                 @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,7 +92,21 @@
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Latitude, new { id = "txtLat" })
+                @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Longitude, new { id = "txtLng" })
+                @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -194,6 +262,7 @@
                 @Html.ValidationMessageFor(model => model.ReportEmail, "", new { @class = "text-danger" })
             </div>
         </div>
+
 
         @*<div class="form-group" >*@
         <!--Phone format-->

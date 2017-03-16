@@ -46,7 +46,7 @@ namespace SaveMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates")] ReportAbuser reportAbuser)
+        public ActionResult Create([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates,Latitude,Longitude")] ReportAbuser reportAbuser)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace SaveMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates")] ReportAbuser reportAbuser)
+        public ActionResult Edit([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates,Latitude,Longitude")] ReportAbuser reportAbuser)
         {
             if (ModelState.IsValid)
             {

@@ -207,6 +207,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201703161403598_AddLngLat.cs" />
+    <Compile Include="Migrations\201703161403598_AddLngLat.Designer.cs">
+      <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\App_Start\BundleConfig.cs" />
     <Compile Include="Properties\App_Start\FilterConfig.cs" />
     <Compile Include="Properties\App_Start\IdentityConfig.cs" />
@@ -376,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703101912180_multiline.resx">
       <DependentUpon>201703101912180_multiline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161403598_AddLngLat.resx">
+      <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
