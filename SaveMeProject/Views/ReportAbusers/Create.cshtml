@@ -28,7 +28,7 @@
                     new SelectListItem { Text = "Cruelty/Neglect", Value = "Cruelty/Neglect" },
                     new SelectListItem { Text = "Other Complaint", Value = "Other Complaint" },
                }, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.Topic, "*", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -158,14 +158,14 @@
             </div>
         </div>
 
-        <div class="form-group"> 
+        <div class="form-group">
             @*Text boxes for Abuser and Property Description*@
             <h3><strong>Abuser and Property Description</strong></h3>
             <h4><strong>Include street address if known</strong></h4>
             @Html.LabelFor(model => model.PropertyDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PropertyDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide additional details here." } })
-                @Html.ValidationMessageFor(model => model.PropertyDescription, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PropertyDescription, "*", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -173,7 +173,7 @@
             @Html.LabelFor(model => model.AbuserDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AbuserDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Physical attributes, age, etc." } })
-                @Html.ValidationMessageFor(model => model.AbuserDescription, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.AbuserDescription, "*", new { @class = "text-danger" })
             </div>
         </div>
 
