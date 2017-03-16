@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Create";
 }
-
+@* Google map api *@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRa9eyYslzo7LNWf7OhxUVY0hAcrw4Qts" type="text/javascript"></script>
 
 <h2>Create</h2>
 
-<div id="map_canvas" style="height: 200px; width: 300px;"></div>
 
+@* This contains both the map code and the lat and long code for the project *@
 <script type="text/javascript" language="JavaScript">
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (p) {
@@ -68,9 +68,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-        <button type="button" onclick="Javascript:SetTextBoxValue()">
-            Set the Value
-        </button>
+
         <!--Dropdown starts here-->
 
         <div class="form-group">
@@ -92,21 +90,7 @@
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Latitude, new { id = "txtLat" })
-                @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Longitude, new { id = "txtLng" })
-                @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
-            </div>
-        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -297,7 +281,27 @@
                 </div>
             </div>
         </div>
+        @* This is the added parts for google maps and getting the lat and long *@
+        <div class="form-group">
+            @Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Latitude, new { id = "txtLat" })
+                @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Longitude, new { id = "txtLng" })
+                @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <button type="button" onclick="Javascript:SetTextBoxValue()">
+            Set the Value
+        </button>
 
+        <div id="map_canvas" style="height: 200px; width: 300px;"></div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

@@ -16,7 +16,7 @@ namespace SaveMeProject.Models
         public string Topic { get; set; }
         public DateTime Date { get; set; }
 
-
+        //Lat and long added for google map api
         public string Latitude { get; set; }
         public string Longitude { get; set; }
 

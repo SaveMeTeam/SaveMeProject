@@ -19,7 +19,7 @@ namespace SaveMeProject.Controllers
         {
             return View(db.ReportAbusers.ToList());
         }
-
+        [Authorize]
         // GET: ReportAbusers/Details/5
         public ActionResult Details(int? id)
         {
@@ -57,7 +57,7 @@ namespace SaveMeProject.Controllers
 
             return View(reportAbuser);
         }
-
+        [Authorize]
         // GET: ReportAbusers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -88,7 +88,7 @@ namespace SaveMeProject.Controllers
             }
             return View(reportAbuser);
         }
-
+        [Authorize]
         // GET: ReportAbusers/Delete/5
         public ActionResult Delete(int? id)
         {
