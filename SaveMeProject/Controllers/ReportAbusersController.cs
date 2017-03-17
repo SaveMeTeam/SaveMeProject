@@ -20,11 +20,9 @@ namespace SaveMeProject.Controllers
         {
             return View(db.ReportAbusers.ToList());
         }
-<<<<<<< HEAD
-        
-=======
+
         [Authorize]
->>>>>>> a5cecf0a5bca93de69aba30a324ebb435da33414
+
         // GET: ReportAbusers/Details/5
         public ActionResult Details(int? id)
         {
