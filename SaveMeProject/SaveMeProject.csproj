@@ -207,6 +207,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201703161403598_AddLngLat.cs" />
+    <Compile Include="Migrations\201703161403598_AddLngLat.Designer.cs">
+      <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\App_Start\BundleConfig.cs" />
     <Compile Include="Properties\App_Start\FilterConfig.cs" />
     <Compile Include="Properties\App_Start\IdentityConfig.cs" />
@@ -286,6 +290,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Shared\FormFactory\_README.txt" />
     <Content Include="Web.config" />
@@ -376,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703101912180_multiline.resx">
       <DependentUpon>201703101912180_multiline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161403598_AddLngLat.resx">
+      <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
