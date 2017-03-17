@@ -30,10 +30,9 @@ namespace SaveMeProject.Models
         public bool Shot { get; set; }
         public bool Injury { get; set; }
         public bool Abuse { get; set; }
-        [DataType(DataType.MultilineText)]
         public string Other { get; set; }
 
-
+        [Required]
         [Display(Name ="Enter type and number of animal(s)")]
         [Placeholder("Ex. 3 cats, 2 dogs")]
         [DataType(DataType.MultilineText)]
@@ -43,9 +42,11 @@ namespace SaveMeProject.Models
         [Display(Name ="Describe the property")]
         [DataType(DataType.MultilineText)]
         public string PropertyDescription { get; set; }
+
         [Display(Name ="Describe the abuser(s)")]
         [DataType(DataType.MultilineText)]
         public string AbuserDescription { get; set; }
+
         [Display(Name ="Name of abuser(s)")]
         [DataType(DataType.MultilineText)]
         public string OwnerName { get; set; }

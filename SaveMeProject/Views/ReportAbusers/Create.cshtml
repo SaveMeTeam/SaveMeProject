@@ -43,6 +43,7 @@
         <div class="form-group">
             @*Check all that Apply abuse checkbox area*@
             <h3><strong>Check All That Apply</strong></h3>
+            <h5>Check at least one or choose other and describe details</h5>
             @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -154,7 +155,7 @@
             @Html.LabelFor(model => model.AbuseDetails, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AbuseDetails, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ex. 2 Dogs, 3 Cats." } })
-                @Html.ValidationMessageFor(model => model.AbuseDetails, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.AbuseDetails, "*", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -173,7 +174,7 @@
             @Html.LabelFor(model => model.AbuserDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AbuserDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Physical attributes, age, etc." } })
-                @Html.ValidationMessageFor(model => model.AbuserDescription, "*", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.AbuserDescription, "", new { @class = "text-danger" })
             </div>
         </div>
 

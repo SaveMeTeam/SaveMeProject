@@ -26,3 +26,8 @@ textarea {
 .form-control {
     display:inline-block
 }
+
+.text-danger {
+    color: #ea100b;
+    font-size: 20px
+}
