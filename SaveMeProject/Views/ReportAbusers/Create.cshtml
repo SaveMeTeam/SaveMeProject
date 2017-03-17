@@ -14,6 +14,8 @@
 
 
 
+
+
 @* This contains both the map code and the lat and long code for the project *@
 <script type="text/javascript" language="JavaScript">
     if (navigator.geolocation) {
@@ -321,44 +323,29 @@
                             @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
                         
                     </div>
-
-                    @*<div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Create" class="btn btn-primary" />
-                            </div>
-                        </div>*@
-
-
-                    @*end of Contact Information section ^^*@
+                   @*end of Contact Information section ^^*@
         
                     <div class="form-group">
                         @*Submit button*@
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" />
+                            @*JS button confirmation message*@
+                            <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" id="alertconfirm" />
                         </div>
                     </div>
 </div>
                     @* end Submit button*@
 
 
-<<<<<<< HEAD
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                @*JS button confirmation message*@
-                <input type="submit" value="Create" class="btn btn-default" id="alertconfirm" />
-                @*<button type="button" id="alertconfirm">Save</button>*@
-            </div>
-        </div>
-    </div>
+       
+    
 }
-=======
->>>>>>> 0ad3bbbf279c8cd6b3891fa425fc3556e54aa999
+
 
                     <div>
                         @Html.ActionLink("Back to Home", "Index", "Home", new { @class = " btn btn-primary", role = "button" })
                     </div>
 
-}
+
 @section Scripts {
     <script src="~/Scripts/jquery.maskedinput.js"></script>
     <script src="~/Scripts/jquery.maskedinput.min.js"></script>
