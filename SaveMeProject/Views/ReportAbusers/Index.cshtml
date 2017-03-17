@@ -17,6 +17,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Food)
         </th>
@@ -57,6 +58,12 @@
             @Html.DisplayNameFor(model => model.PropertyDescription)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.AbuserDescription)
         </th>
         <th>
@@ -88,6 +95,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Food)
         </td>
@@ -128,6 +136,12 @@
             @Html.DisplayFor(modelItem => item.PropertyDescription)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.AbuserDescription)
         </td>
         <td>
@@ -140,8 +154,8 @@
             @Html.DisplayFor(modelItem => item.ReportEmail)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ReportPhone)
-        </td>
+            @Html.DisplayFor(modelItem => item.ReportPhone)  
+                 </td>
         <td>
             @Html.DisplayFor(modelItem => item.Contact)
         </td>

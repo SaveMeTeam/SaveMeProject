@@ -207,11 +207,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Migrations\201703161403598_AddLngLat.cs" />
+    <Compile Include="Migrations\201703161403598_AddLngLat.Designer.cs">
+      <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\App_Start\BundleConfig.cs" />
+    <Compile Include="Properties\App_Start\FilterConfig.cs" />
+    <Compile Include="Properties\App_Start\IdentityConfig.cs" />
+    <Compile Include="Properties\App_Start\RouteConfig.cs" />
+    <Compile Include="Properties\App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -222,6 +226,14 @@
     <Compile Include="Migrations\201703101524133_Rearrangedfields.cs" />
     <Compile Include="Migrations\201703101524133_Rearrangedfields.Designer.cs">
       <DependentUpon>201703101524133_Rearrangedfields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703101654568_multilinetext.cs" />
+    <Compile Include="Migrations\201703101654568_multilinetext.Designer.cs">
+      <DependentUpon>201703101654568_multilinetext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703101912180_multiline.cs" />
+    <Compile Include="Migrations\201703101912180_multiline.Designer.cs">
+      <DependentUpon>201703101912180_multiline.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -237,8 +249,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FormFactory\FormFactory.css" />
+    <Content Include="Content\images\Saveme %281%29.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FormFactory\FormFactory.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
@@ -263,16 +277,20 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.dynamic.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\PhoneFormat.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Shared\FormFactory\_README.txt" />
     <Content Include="Web.config" />
@@ -309,6 +327,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ReportAbusers\Create.cshtml" />
+    <Content Include="Views\ReportAbusers\Delete.cshtml" />
+    <Content Include="Views\ReportAbusers\Details.cshtml" />
+    <Content Include="Views\ReportAbusers\Edit.cshtml" />
+    <Content Include="Views\ReportAbusers\Index.cshtml" />
     <Content Include="Views\Shared\FormFactory\Property.System.Xml.Linq.XElement.cshtml" />
     <Content Include="Views\Shared\FormFactory\Property.System.TimeSpan.cshtml" />
     <Content Include="Views\Shared\FormFactory\Property.System.String.cshtml" />
@@ -339,11 +362,6 @@
     <Content Include="Views\Shared\FormFactory\Cell.System.Decimal.cshtml" />
     <Content Include="Views\Shared\FormFactory\Cell.System.DateTimeOffset.cshtml" />
     <Content Include="Views\Shared\FormFactory\Cell.System.DateTime.cshtml" />
-    <Content Include="Views\ReportAbusers\Create.cshtml" />
-    <Content Include="Views\ReportAbusers\Delete.cshtml" />
-    <Content Include="Views\ReportAbusers\Details.cshtml" />
-    <Content Include="Views\ReportAbusers\Edit.cshtml" />
-    <Content Include="Views\ReportAbusers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,6 +375,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703101524133_Rearrangedfields.resx">
       <DependentUpon>201703101524133_Rearrangedfields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101654568_multilinetext.resx">
+      <DependentUpon>201703101654568_multilinetext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703101912180_multiline.resx">
+      <DependentUpon>201703101912180_multiline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161403598_AddLngLat.resx">
+      <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
