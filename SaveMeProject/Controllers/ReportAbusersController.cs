@@ -15,11 +15,12 @@ namespace SaveMeProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ReportAbusers
+     
         public ActionResult Index()
         {
             return View(db.ReportAbusers.ToList());
         }
-
+        
         // GET: ReportAbusers/Details/5
         public ActionResult Details(int? id)
         {
