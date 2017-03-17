@@ -19,7 +19,7 @@ namespace SaveMeProject.Controllers
         {
             return View(db.ReportAbusers.ToList());
         }
-
+        [Authorize]
         // GET: ReportAbusers/Details/5
         public ActionResult Details(int? id)
         {
@@ -46,18 +46,18 @@ namespace SaveMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates")] ReportAbuser reportAbuser)
+        public ActionResult Create([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates,Latitude,Longitude")] ReportAbuser reportAbuser)
         {
             if (ModelState.IsValid)
             {
                 db.ReportAbusers.Add(reportAbuser);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(reportAbuser);
         }
-
+        [Authorize]
         // GET: ReportAbusers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -78,7 +78,7 @@ namespace SaveMeProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates")] ReportAbuser reportAbuser)
+        public ActionResult Edit([Bind(Include = "ReportID,Topic,Date,Food,Shelter,Abandoned,Poisoned,Underweight,Trapping,Water,Shot,Injury,Abuse,Other,AbuseDetails,PropertyDescription,AbuserDescription,OwnerName,FullName,ReportEmail,ReportPhone,Contact,Updates,Latitude,Longitude")] ReportAbuser reportAbuser)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace SaveMeProject.Controllers
             }
             return View(reportAbuser);
         }
-
+        [Authorize]
         // GET: ReportAbusers/Delete/5
         public ActionResult Delete(int? id)
         {

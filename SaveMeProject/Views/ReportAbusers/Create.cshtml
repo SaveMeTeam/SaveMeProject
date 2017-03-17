@@ -4,21 +4,75 @@
     ViewBag.Title = "Create";
 }
 
+@* Google map api *@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRa9eyYslzo7LNWf7OhxUVY0hAcrw4Qts" type="text/javascript"></script>
+
 <h2>Create</h2>
 
+@*//Top of form//*@
+<h2>Report Animal Cruelty</h2>
+
+
+
+@* This contains both the map code and the lat and long code for the project *@
+<script type="text/javascript" language="JavaScript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (p) {
+            var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+            var mapOptions = {
+                center: LatLng,
+                zoom: 13,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            };
+
+            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+            var marker = new google.maps.Marker({
+                position: LatLng,
+                map: map,
+                title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+            });
+            google.maps.event.addListener(marker, "click", function (e) {
+                var infoWindow = new google.maps.InfoWindow();
+                infoWindow.setContent(marker.title);
+                infoWindow.open(map, marker);
+            });
+
+
+
+        });
+    } else {
+        alert('Geo Location feature is not supported in this browser.');
+    }
+    function SetTextBoxValue() {
+        // document.getElementById('txtDes').value =
+        navigator.geolocation.getCurrentPosition(function (point) {
+            var LatLng = new google.maps.LatLng(point.coords.latitude, point.coords.longitude);
+            var Lat = point.coords.latitude
+            var Lng = point.coords.longitude
+            document.getElementById('txtLat').value = Lat.toFixed(4)
+            document.getElementById('txtLng').value = Lng.toFixed(4)
+            document.getElementById("txtCon").innerHTML = "Location Recorded!"
+        });
+    }
+
+</script>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>ReportAbuser</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
 
         <!--Dropdown starts here-->
 
         <div class="form-group">
+            @*Topic Header*@
+            <h3><strong>Choose a Topic</strong></h3>
             @Html.LabelFor(model => model.Topic, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Topic, new List<SelectListItem>
@@ -30,7 +84,6 @@
                 @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -40,6 +93,8 @@
         </div>
 
         <div class="form-group">
+            @*Check all that Apply abuse checkbox area*@
+            <h3><strong>Check All That Apply</strong></h3>
             @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -146,7 +201,7 @@
                 @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        @*End of abuse checkbox area ^^*@
         <div class="form-group">
             @Html.LabelFor(model => model.AbuseDetails, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -156,13 +211,27 @@
         </div>
 
         <div class="form-group">
+            <button type="button" class="btn btn-primary" onclick="Javascript:SetTextBoxValue()">
+                Record the Location
+            </button>
+
+            <div id="map_canvas" style="height: 200px; width: 300px;"></div>
+
+            <label id="txtCon"></label>
+        </div>
+
+
+        <div class="form-group">
+            @*Text boxes for Abuser and Property Description*@
+            <h3><strong>Abuser and Property Description</strong></h3>
+            <h4><strong>Include street address if known</strong></h4>
             @Html.LabelFor(model => model.PropertyDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PropertyDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide additional details here." } })
                 @Html.ValidationMessageFor(model => model.PropertyDescription, "", new { @class = "text-danger" })
+
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.AbuserDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -179,56 +248,100 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name, Last Name" } })
-                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReportEmail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReportEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "example@address.com" } })
-                @Html.ValidationMessageFor(model => model.ReportEmail, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    
+                @*end of Text boxes for Abuser and Property Description ^^*@
 
-        @*<div class="form-group" >*@
-        <!--Phone format-->
+                <div class="form-group">
+                    @*Contact Information section*@
+                    <h3><strong>Contact Information</strong></h3>
+                    @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name, Last Name" } })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
 
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReportPhone, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReportPhone, new { htmlAttributes = new { @class = "form-control", id = "phone", placeholder = "(XXX) XXX XXXX" } })
-                @Html.ValidationMessageFor(model => model.ReportPhone, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <!--End format-->
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Contact, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Contact)
-                    @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-        </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ReportEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ReportEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "example@address.com" } })
+                            @Html.ValidationMessageFor(model => model.ReportEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Updates, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Updates)
-                    @Html.ValidationMessageFor(model => model.Updates, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
 
+                    @*<div class="form-group" >*@
+                    <!--Phone format-->
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ReportPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ReportPhone, new { htmlAttributes = new { @class = "form-control", id = "phone", placeholder = "(XXX) XXX XXXX" } })
+                            @Html.ValidationMessageFor(model => model.ReportPhone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <!--End format-->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Contact, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Contact)
+                                @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Updates, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Updates)
+                                @Html.ValidationMessageFor(model => model.Updates, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    @* This is the added parts for google maps and getting the lat and long *@
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        
+                            @Html.TextBoxFor(model => model.Latitude, new { id = "txtLat", style = "display: none; " })
+                            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+                        
+                    </div>
+
+
+                    <div class="form-group">
+                        @*@Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                       
+                            @Html.TextBoxFor(model => model.Longitude, new { id = "txtLng", style = "display: none; " })
+                            @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+                        
+                    </div>
+
+                    @*<div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </div>*@
+
+
+                    @*end of Contact Information section ^^*@
+        
+                    <div class="form-group">
+                        @*Submit button*@
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" />
+                        </div>
+                    </div>
+</div>
+                    @* end Submit button*@
+
+
+<<<<<<< HEAD
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @*JS button confirmation message*@
@@ -238,11 +351,14 @@
         </div>
     </div>
 }
+=======
+>>>>>>> 0ad3bbbf279c8cd6b3891fa425fc3556e54aa999
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                    <div>
+                        @Html.ActionLink("Back to Home", "Index", "Home", new { @class = " btn btn-primary", role = "button" })
+                    </div>
 
+}
 @section Scripts {
     <script src="~/Scripts/jquery.maskedinput.js"></script>
     <script src="~/Scripts/jquery.maskedinput.min.js"></script>
