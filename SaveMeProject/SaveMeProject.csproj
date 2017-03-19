@@ -251,8 +251,10 @@
     <Content Include="Content\FormFactory\FormFactory.css" />
     <Content Include="Content\images\banner 1.png" />
     <Content Include="Content\images\Banner 2x.png" />
+    <Content Include="Content\images\bottom panel 2x.jpg" />
     <Content Include="Content\images\jumbo 1.png" />
     <Content Include="Content\images\logo trans 105.png" />
+    <Content Include="Content\images\panel b 3x.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormFactory\FormFactory.js" />

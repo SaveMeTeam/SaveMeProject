@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background:#F3E6D6 !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -18,16 +19,24 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 /*input,
-select,
+select,*/
 textarea {
     max-width: 280px;
-}*/
+}
 @import url('http://getbootstrap.com/dist/css/bootstrap.css');
-/*.form-control {
+.form-control {
     display:inline-block
-}*/
+}
 .jumbo{
-    background-color:#DCC7AA; !important;
-    
+    background-color:#DCC7AA !important;
+    color:black !important;
+  }
 
+h2,p{
+    font-family: 'Righteous', cursive !important;
+    color:black;
+}
+
+.bunny{
+    margin-left: 0px !important;
 }
