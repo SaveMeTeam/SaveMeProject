@@ -4959,12 +4959,12 @@ a.badge:focus {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
-  color: inherit;
-  background-color: #eee;
+  color:#DCC7AA !important
+
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  color: inherit;
+  color:#DCC7AA !important
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -4972,7 +4972,7 @@ a.badge:focus {
   font-weight: 200;
 }
 .jumbotron > hr {
-  border-top-color: #d5d5d5;
+  border-top-color: #DCC7AA;
 }
 .container .jumbotron,
 .container-fluid .jumbotron {
