@@ -31,17 +31,19 @@ textarea {
 .funkyradio div {
   clear: both;
   overflow: hidden;
+
 }
 
 .funkyradio label {
   width: 100%;
-  border: 1px solid #D1D3D4;
+  border: 2px solid #E3D1B9;
   font-weight: normal;
- 
+ color:black;
 }
 
 .funkyradio input[type="checkbox"]:empty {
   display: none;
+
 }
 
 .funkyradio input[type="checkbox"]:empty ~ label {
@@ -63,7 +65,7 @@ textarea {
   left: 0;
   content: '';
   width: 2.5em;
-  background: #D1D3D4;
+  background: #E3D1B9;
   border-radius: 3px 0 0 3px;
 }
 
@@ -122,4 +124,10 @@ textarea {
   color: #fff;
   background-color: #5bc0de;
 }
+.header {
+    background-image: url('images/IMAGE.jpg');
+   background-position:center;
+    padding:200px;
+}
+
 
