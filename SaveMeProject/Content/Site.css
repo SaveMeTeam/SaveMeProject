@@ -35,9 +35,9 @@ textarea {
 
 .funkyradio label {
   width: 100%;
-  border-radius: 3px;
   border: 1px solid #D1D3D4;
   font-weight: normal;
+ 
 }
 
 .funkyradio input[type="checkbox"]:empty {
@@ -52,7 +52,6 @@ textarea {
   cursor:pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 

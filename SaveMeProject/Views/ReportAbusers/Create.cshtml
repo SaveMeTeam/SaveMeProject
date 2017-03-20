@@ -108,7 +108,7 @@
                     <div class="funkyradio-warning">
                         @Html.EditorFor(model => model.Food, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
                         <label for="checkbox5">
-                            @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2"})
                         </label>
                         @Html.ValidationMessageFor(model => model.Food, "", new { @class = "text-danger" })
                     </div>
@@ -374,7 +374,7 @@
   
 }
 <div>
-    @Html.ActionLink("Back to Home", "Index", "Home", new { @class = " btn btn-primary", role = "button" })
+    @Html.ActionLink("Back to Index", "Index", "Home", new { @class = " btn btn-primary", role = "button" })
 </div>
 
 
