@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background:#F3E6D6 !important;
+    background:#F5F5F3 !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -30,13 +30,24 @@ textarea {
 .jumbo{
     background-color:#DCC7AA !important;
     color:black !important;
+
   }
 
-h2,p{
-    font-family: 'Righteous', cursive !important;
+p{
+    font-family: Architects Daughter, cursive !important;
     color:black;
 }
 
+h2{
+    font-family: Architects Daughter, cursive !important;
+    color: black !important;
+   
+}
 .bunny{
     margin-left: 0px !important;
+}
+
+.jumbotron {
+    color: #DCC7AA !important;
+    background-color: #DCC7AA !important;
 }
