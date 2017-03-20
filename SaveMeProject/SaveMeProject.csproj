@@ -272,6 +272,7 @@
     <Content Include="Scripts\bootstrap3-typeahead.js" />
     <Content Include="Scripts\bootstrap3-typeahead.unobtrusive.js" />
     <Content Include="Scripts\FormFactory\FormFactory.js" />
+    <Content Include="Scripts\googleMaps.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
