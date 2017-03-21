@@ -1,63 +1,80 @@
-﻿@{
+﻿@*@{
     ViewBag.Title = "Home Page";
-}
+}*@
 
 @******banner*@
-<div class="page-header">
-        <img src="~/Content/images/Banner 2x.png"/>
-</div>
+@*<div class ="page-header" id="bannertop">
+    <img src="~/Content/images/1349x400 topper.png" />
+</div>*@
 
 @*******jumbotron*@
-<div class="row jumbo">
+@*<div class="row jumbo">
     <div class="col-4-12">
         <div class="jumbotron">
-            <img src="~/Content/images/logo trans 105.png" />
-            <h2>Animals can't speak for themselves. We need to be their voice.</h2>
-            <p>If you have witnessed animal abuse or neglect, report it immediately. When you submit a report,
-             the information is immediately available to cruelty agents who can begin their investigation.</p>
-            <h2>Don't wait. Report abuse now. </h2>
-
-            <a href="#" class="btn btn-large btn-info">Report Abuse</a>
-        </div>
-    </div>
-</div>
-@******end of jumbotron*@
-
-/n
-
-<div class="row bunny">
-         <img src="~/Content/images/panel b 3x.png" />
-
-</div>
-
-
-
-
-@*<div class="row">
-    <h1>SaveME Project!</h1>
-
-    <p class="lead">This is our Homepage YAY</p>
-
-
-</div>
-
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-       
-        </p>
-
-      
-    </div>
    
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
+        <img src="~/Content/images/logo trans 105.png" />
+        <h2>Animals can't speak for themselves. We need to be their voice.</h2>
+        <p>
+            If you have witnessed animal abuse or neglect, report it immediately. When you submit a report,
+            the information is immediately available to cruelty agents who can begin their investigation.
+        </p>
+        <h2>Don't wait. Report abuse now. </h2>
 
+        <a href="#" class="btn btn-large btn-info">Report Abuse</a>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-
     </div>
 </div>*@
+@******end of jumbotron*@
+
+@*<div class="item">
+    <div class="container-fluid">
+        <img src="~/Content/images/logo trans 105.png" id="Rescuetext" alt="Rescuetext" />
+        <div class="carousel-caption">
+            <h2 id="tagline"><b>Animals can't speak for themselves. We need to be their voice. <i>New</i></b></h2>
+            <h1 id="tagline"> @*style="color:deeppink;font-family: 'Pacifico', cursive;">*<strong> If you have witnessed animal abuse or neglect, report it immediately. When you submit a report,
+            the information is immediately available to cruelty agents who can begin their investigation.*</strong></h1>
+            @*<h2 id="tagline2"> Don't wait. Report abuse now. </h2>
+            <br>
+            <a class="btn btn-lg btn-primary" href="#">Shop Now!</a>&nbsp;&nbsp;<a class="btn btn-lg btn-primary" href="#">Sell Stuff!</a>
+        </div>
+    </div>
+</div>*@
+
+
+@*<div class="row bunny">
+         <img src="~/Content/images/panel b 3x.png" />
+
+</div>*@
+
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-2">
+                    <h1 class="brand-heading">Report Animal Cruelty</h1>
+                    <p class="intro-text">
+                        Animals can't speak for themselves. We need to be their voice.
+                        <br>Don't wait. Report abuse now.
+                    </p>
+                    <a href="#about" class="btn btn-circle page-scroll"/>
+                   /a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>About Grayscale</h2>
+            <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
+            <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
+            <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+        </div>
+    </div>
+</section>
+
+
