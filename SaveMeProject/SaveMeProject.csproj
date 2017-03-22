@@ -251,7 +251,11 @@
     <Content Include="Content\FormFactory\FormFactory.css" />
     <Content Include="Content\images\1349x300 footer banner 123.png" />
     <Content Include="Content\images\animal-shelter-1558651_1920.jpg" />
+    <Content Include="Content\images\coco dog rottie.jpg" />
+    <Content Include="Content\images\dog-142667_1920.jpg" />
     <Content Include="Content\images\final logo trans.png" />
+    <Content Include="Content\images\sad dog on ground.jpg" />
+    <Content Include="Content\images\sad dog.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormFactory\FormFactory.js" />
