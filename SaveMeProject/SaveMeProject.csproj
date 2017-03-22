@@ -249,7 +249,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FormFactory\FormFactory.css" />
-    <Content Include="Content\images\IMAGE.jpg" />
+    <Content Include="Content\images\denisa.png" />
+    <Content Include="Content\images\image1.JPG" />
+    <Content Include="Content\images\jen.png" />
+    <Content Include="Content\images\Rbender.jpg" />
     <Content Include="Content\images\Saveme %281%29.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

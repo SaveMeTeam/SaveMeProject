@@ -34,7 +34,7 @@ namespace SaveMeProject.Models
         public bool Shot { get; set; }
         public bool Injury { get; set; }
         public bool Abuse { get; set; }
-        public string Other { get; set; }
+        public bool Other { get; set; }
 
 
         [Display(Name ="Enter type and number of animal(s)")]
