@@ -133,6 +133,8 @@ body {
 	font-family: arial, verdana, tahoma;
 }
 
+
+/*Contact Page starts here*/
 /*Time to apply widths for accordian to work
 Width of image = 640px
 total images = 5
@@ -206,3 +208,18 @@ width: 640px;
 	padding: 20px;
 	font-size: 16px;
 }
+.contact{
+    border: 10px double orange;
+}
+.contact1{
+        border: 10px double orange;
+
+}
+.developers{
+
+
+    color:darkorange;
+    font-weight:bolder;
+    text-shadow: 4px 3px 0px gray, 9px 8px 0px rgba(0,0,0,0.15);
+}
+/*Contact page ends here*/
