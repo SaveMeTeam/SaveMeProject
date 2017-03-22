@@ -249,6 +249,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FormFactory\FormFactory.css" />
+    <Content Include="Content\images\animal-shelter-1558651_1920.jpg" />
+    <Content Include="Content\images\bottom panel 2x.jpg" />
+    <Content Include="Content\images\logobar.png" />
     <Content Include="Content\images\Saveme %281%29.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

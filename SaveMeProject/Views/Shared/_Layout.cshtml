@@ -14,7 +14,6 @@
     <link href="/Content/FormFactory/FormFactory.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/FormFactory/FormFactory.js" type="text/javascript"></script>
 
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -24,38 +23,89 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
 
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- Register page is /Account/Register -->
+
+    @*Javascript for NavBar*@
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+
+            var active1 = false;
+            var active2 = false;
+            var active3 = false;
+            var active4 = false;
+
+            $('.parent2').on('mousedown touchstart', function () {
+
+                if (!active1) $(this).find('.test1').css({ 'background-color': 'gray', 'transform': 'translate(0px,125px)' });
+                else $(this).find('.test1').css({ 'background-color': 'dimGray', 'transform': 'none' });
+                if (!active2) $(this).find('.test2').css({ 'background-color': 'gray', 'transform': 'translate(60px,105px)' });
+                else $(this).find('.test2').css({ 'background-color': 'darkGray', 'transform': 'none' });
+                if (!active3) $(this).find('.test3').css({ 'background-color': 'gray', 'transform': 'translate(105px,60px)' });
+                else $(this).find('.test3').css({ 'background-color': 'silver', 'transform': 'none' });
+                if (!active4) $(this).find('.test4').css({ 'background-color': 'gray', 'transform': 'translate(125px,0px)' });
+                else $(this).find('.test4').css({ 'background-color': 'silver', 'transform': 'none' });
+                active1 = !active1;
+                active2 = !active2;
+                active3 = !active3;
+                active4 = !active4;
+
+            });
+        });</script>
+
+    @*end JS for NavBar*@
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-             
+            <!--The circle pop up menu-->
+            <div class="parent2">
+                <div class="test1"><i class="fa fa-user fa-2x"></i></div>
+                <div class="test2"><a href="@Url.Action("Create","ReportAbusers")"><i class="fa fa-paw fa-2x" title="Report Abuse"></i></a></div>
+                <div class="test3"><a href="@Url.Action("Index","Home")"><i class="fa fa-home fa-2x" title="Homepage"></i></a></div>
+                <div class="test4"><i class="fa fa-envelope-o fa-2x"></i></div>
+                <div class="mask2"><img src="~/Content/images/logobar.png" height="35;" /></div>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Report Abuse", "Create", "ReportAbusers")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
+
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year Save Me - Reporting Animal Cruelty</p>
+            <!-- Contact Section -->
+            <section id="contact" class="container content-section text-center">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <p>Connect with us!</p>
+
+                        <ul class="list-inline banner-social-buttons">
+                            <li>
+                                <a href="https://twitter.com/neohiospca" title="Ohio SPCA Twitter"><i class="fa fa-twitter fa-3x" id="btntwit"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/SaveMeTeam" title="SaveMe GitHub Page"><i class="fa fa-github fa-3x" id="btntwit"></i></a>
+                            </li>
+                            <li>
+                                <a href="http://www.northeastohiospca.org/events.html" title="Cleveland SPCA Events"><i class="fa fa-calendar fa-3x" id="btntwit"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <p id="savefoot">&copy; @DateTime.Now.Year Save Me - Reporting Animal Cruelty</p>
         </footer>
     </div>
-   
+
+    @*<script src="jquery.js" type="text/javascript"></script>
+        <script src="jquery.maskedinput.js" type="text/javascript"></script>*@
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

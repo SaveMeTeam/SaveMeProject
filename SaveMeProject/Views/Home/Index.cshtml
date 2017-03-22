@@ -1,34 +1,58 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<style>
+    div.container.body-content {
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+        width: 100%;
+    }
 
-<div class="jumbotron">
-    
-    <img src="~/Content/images/Saveme (1).png" />" 
+    div.container.body-content {
+        background-color: #1A2930;
+    }
 
-    <h1>SaveME Project!</h1>
-    <p class="lead">This is our Homepage YAY</p>
-   
-  
+    .page-header {
+        border-bottom: none;
+    }
 
-</div>
+    div.container-fluid {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+</style>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-       
-        </p>
+<body>
 
-      
+    <div class="container-fluid">
+        <div class="page-header" id="animalPic">
+            <img src="~/Content/images/animal-shelter-1558651_1920.jpg" class="img-responsive" />
+            <div class="carousel-caption">
+                <h2 id="tagline"><b>Say Hello to Your <i>New</i></b></h2>
+                <h1 id="tagline" style="color:deeppink;font-family: 'Pacifico', cursive;"><strong>Wardrobe</strong></h1>
+                <h2 id="tagline2"> & Goodbye to Your Old Stuff! </h2>
+                <br>
+                <a class="btn btn-lg btn-primary" href="#">Shop Now!</a>&nbsp;&nbsp;<a class="btn btn-lg btn-primary" href="#">Sell Stuff!</a>
+            </div>
+        </div>
     </div>
-   
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
+
+
+    <div class="col-lg-12" id="textBox">
+
+        <h1>Nature</h1>
+        <p>Breathtaking Nature Stock Photos for FREE!</p>
+        <p><a href="#" class="btn btn-success btn-lg">Click Here »</a></p>
 
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
 
+
+    <div class="container-fluid">
+        <div class="page-header" id="bottomBanner">
+            <img src="~/Content/images/bottom panel 2x.jpg" class="img-responsive" id="bottomBanner" />
+        </div>
     </div>
-</div>
+
+</body>
