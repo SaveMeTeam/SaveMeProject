@@ -399,11 +399,9 @@ width: 640px;
 
 }
 .developers{
-
-
     color:darkorange;
     font-weight:bolder;
-    text-shadow: 4px 3px 0px gray, 9px 8px 0px rgba(0,0,0,0.15);
+    text-shadow: 4px 3px 0px #6572A6, 9px 8px 0px rgba(0,0,0,0.15);
 }
 /*Contact page ends here*/
 /*Mei's ends here*/
@@ -416,14 +414,17 @@ div.navbar-fixed-top {
     border-bottom-color: #6B78AF;
     
 }
-
 #loginLink{
-    letter-spacing:2px;
-    color: #0094ff !important;
-    font-size: 18px;
-    font-weight:bold;    
+    font-family: 'Righteous', cursive !important;
+    color:#6B78AF  !important;
+    text-align:center;
+    
 }
+  
+#divvy{
 
+zoom:.6;    
+}
 #savefoot {
     color: #6B78AF !important;
     

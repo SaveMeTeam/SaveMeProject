@@ -58,23 +58,35 @@
 
     @*end JS for NavBar*@
 
+    <!-- Navbar/header for pages -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <!--The circle pop up menu-->
-            <div class="parent2">
-                <div class="test1"><i class="fa fa-user fa-2x"></i></div>
-                <div class="test2"><a href="@Url.Action("Create","ReportAbusers")"><i class="fa fa-paw fa-2x" title="Report Abuse"></i></a></div>
-                <div class="test3"><a href="@Url.Action("Index","Home")"><i class="fa fa-home fa-2x" title="Homepage"></i></a></div>
-                <div class="test4"><i class="fa fa-envelope-o fa-2x"></i></div>
-                <div class="mask2"><img src="~/Content/images/logobar.png" height="35;" /></div>
+            <div class="container" id="divvy">
+                <div class="parent2">
+                    <div class="test1"><a href="@Url.Action("Contact","Home")"><i class="fa fa-user fa-2x"></i></div>
+                    <div class="test2"><a href="@Url.Action("Create","ReportAbusers")"><i class="fa fa-paw fa-2x" title="Report Abuse"></i></a></div>
+                    <div class="test3"><a href="@Url.Action("Index","Home")"><i class="fa fa-home fa-2x" title="Homepage"></i></a></div>
+                    <div class="test4"><a href=""><i class="fa fa-list fa-2x"></i></a></div>
+                    <div class="mask2"><img src="~/Content/images/logobar.png" height="35" /></div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                @Html.Partial("_LoginPartial")
+            <div class="navbar-right">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!--The circle pop up menu-->
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav homenav">
+                            <li>@Html.Partial("_LoginPartial")</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
-
     <div class="container body-content">
         @RenderBody()
         <hr />
