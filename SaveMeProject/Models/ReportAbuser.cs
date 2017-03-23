@@ -13,7 +13,9 @@ namespace SaveMeProject.Models
         public int ReportID { get; set; }
 
         [Required]
+        [Display(Name = "Topic of Report")]
         public string Topic { get; set; }
+        [Display(Name = "Date of Report")]
         public DateTime Date { get; set; }
 
         //Lat and long added for google map api
@@ -34,7 +36,6 @@ namespace SaveMeProject.Models
         public bool Shot { get; set; }
         public bool Injury { get; set; }
         public bool Abuse { get; set; }
-        [DataType(DataType.MultilineText)]
         public string Other { get; set; }
 
 

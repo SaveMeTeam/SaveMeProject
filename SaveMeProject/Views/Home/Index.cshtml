@@ -1,34 +1,79 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<style>
+    div.container.body-content {
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+        width: 100%;
+    }
 
-<div class="jumbotron">
-    
-    <img src="~/Content/images/Saveme (1).png" />" 
+    div.container.body-content {
+        background-color: #1A2930;
+    }
 
-    <h1>SaveME Project!</h1>
-    <p class="lead">This is our Homepage YAY</p>
-   
-  
+    .page-header {
+        border-bottom: none;
+    }
 
-</div>
+    div.container-fluid {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-       
-        </p>
+    #tagline {
+        font-weight: bold !important;
+        font-size: 70px !important;
+    }
 
-      
+</style>
+
+<body>
+
+    @*Main banner image with header*@
+    <div class="col-lg-12 col-md-6 col-xs-12">
+        <div class="item">
+            <div class="container-fluid" id="animalPic" style="text-align:center;">
+                <img src="~/Content/images/animal-shelter-1558651_1920.jpg" class="img-responsive" />
+                <div class="carousel-caption">
+                    <h2 id="tagline" style="letter-spacing:3px; float:left;"><strong style="color:#ff6a00; font-weight:800;">Help</strong> Give<br /> Animals <br />a <i style="color:#0026ff">Second</i> <br />Chance.</h2>
+                    <br />
+                    <a class="btn btn-lg btn-primary" href="@Url.Action("Create","ReportAbusers")" id="btnChg" style="position:absolute; transition: .5s ease; top:50%; left:7%;">Report Abuse Here</a>
+                </div>
+            </div>
+        </div>
     </div>
-   
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
 
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
 
+    @*blue section starts here*@
+    <div class="col-lg-12 col-md-6 col-xs-12" id="textBox">
+        <div class="container">
+            <h1 class="text-center">Animals can't speak for themselves. We need to be their voice.</h1>
+            <h3>
+                If you have witnessed animal abuse or neglect, use <strong>SaveMe</strong> to report it immediately. When you submit a report,
+                the information is immediately available to cruelty agents to begin an investigation.<br />
+            </h3>
+            <h3 class="text-center" style="font-size:large">If you see an animal in distress who needs immediate help please call 911 or local police.</h3>
+
+            <div class="col-lg-12 col-md-6 col-xs-12" id="bottomBtns" style="text-align:center;">
+
+                <a href="https://donatenow.networkforgood.org/GeneralDon?code=Donate%20Now%20Drop%20Down" class="btn btn-primary" role="button" target="_blank" id="btnChg"><span class="glyphicon glyphicon-gift"></span>&nbsp;Donate!</a>
+                <a href="https://clevelandapl.org/volunteer/foster-care/" class="btn btn-primary" role="button" target="_blank" id="btnChg"><span class="glyphicon glyphicon-home"></span> &nbsp; Foster!</a>
+                <a href="https://clevelandapl.org/adopt/" class="btn btn-primary" role="button" target="_blank" id="btnChg"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp; Adopt!</a>
+            </div>
+        </div>
     </div>
-</div>
+
+
+
+    @*bottom banner starts here*@
+    <div class="col-lg-12 col-md-6 col-xs-12">
+        <div class="container-fluid page-header" id="bottomBanner">
+            <img src="~/Content/images/1349x300 footer banner 123.png" class="img-responsive" style="width:100%;" />
+        </div>
+    </div>
+
+
+</body>

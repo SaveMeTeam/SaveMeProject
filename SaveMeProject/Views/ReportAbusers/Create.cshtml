@@ -4,61 +4,9 @@
     ViewBag.Title = "Create";
 }
 
-@* Google map api *@
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRa9eyYslzo7LNWf7OhxUVY0hAcrw4Qts" type="text/javascript"></script>
-
-<h2>Create</h2>
-
-@*//Top of form//*@
-<h2>Report Animal Cruelty</h2>
-
-
-
-
-
-@* This contains both the map code and the lat and long code for the project *@
-<script type="text/javascript" language="JavaScript">
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (p) {
-            var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-            var mapOptions = {
-                center: LatLng,
-                zoom: 13,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-
-            };
-
-            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-            var marker = new google.maps.Marker({
-                position: LatLng,
-                map: map,
-                title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
-            });
-            google.maps.event.addListener(marker, "click", function (e) {
-                var infoWindow = new google.maps.InfoWindow();
-                infoWindow.setContent(marker.title);
-                infoWindow.open(map, marker);
-            });
-
-
-
-        });
-    } else {
-        alert('Geo Location feature is not supported in this browser.');
-    }
-    function SetTextBoxValue() {
-        // document.getElementById('txtDes').value =
-        navigator.geolocation.getCurrentPosition(function (point) {
-            var LatLng = new google.maps.LatLng(point.coords.latitude, point.coords.longitude);
-            var Lat = point.coords.latitude
-            var Lng = point.coords.longitude
-            document.getElementById('txtLat').value = Lat.toFixed(4)
-            document.getElementById('txtLng').value = Lng.toFixed(4)
-            document.getElementById("txtCon").innerHTML = "Location Recorded!"
-        });
-    }
-
-</script>
+@*Form Header*@
+<h1 class="text-center text-uppercase" style="font-size:60px; letter-spacing:3px;">Animal Cruelty Report Form</h1>
+<p class="text-center" style="font-size:medium">If you have witness any form of animal cruelty, please fill out the form below.</p>
 
 @using (Html.BeginForm())
 {
@@ -68,288 +16,347 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+        @*Topic Dropdown Menu*@
+        <h3><strong>Start Report Here</strong></h3>
 
-
-        <!--Dropdown starts here-->
-
-        <div class="form-group">
-            @*Topic Header*@
-            <h3><strong>Choose a Topic</strong></h3>
-            @Html.LabelFor(model => model.Topic, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Topic, new List<SelectListItem>
+        <div class="form-group" id="section1">
+            <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Topic, htmlAttributes: new { @class = "control-label col-md-2", id = "dropdown" })
+                <div class="col-md-10" style="padding-left:0px;">
+                    @Html.DropDownListFor(model => model.Topic, new List<SelectListItem>
                {
                new SelectListItem { Text = "Select", Value = "Select" },
                     new SelectListItem { Text = "Cruelty/Neglect", Value = "Cruelty/Neglect" },
                     new SelectListItem { Text = "Other Complaint", Value = "Other Complaint" },
                }, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt") } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @*Check all that Apply abuse checkbox area*@
-            <h3><strong>Check All That Apply</strong></h3>
-            @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Food)
-                    @Html.ValidationMessageFor(model => model.Food, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Topic, "Select from menu.", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                @*DateTime Automatic Fill In*@
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2", id = "dropdown" })
+                <div class="col-md-10" style="padding-left:0px;">
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt") } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    <br />
                 </div>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Shelter, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Shelter)
-                    @Html.ValidationMessageFor(model => model.Shelter, "", new { @class = "text-danger" })
+
+
+        @*Abuse checkbox area*@
+        <h3><strong>Abuse Details</strong></h3>
+        <h4>Select all that apply.</h4>
+        <div class="form-group" id="section2">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Food, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Food, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Shelter, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Shelter, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Shelter, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Abandoned, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Abandoned, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Abandoned, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Poisoned, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Poisoned, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Poisoned, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Underweight, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Underweight, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Underweight, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Trapping, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Trapping, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Trapping, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Water, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Water, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Water, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Shot, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Shot, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Shot, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Injury, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Injury, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Injury, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Abuse, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Abuse, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Abuse, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="funkyradio">
+                        <div class="funkyradio-warning">
+                            @Html.EditorFor(model => model.Other, new { type = "checkbox", name = "checkbox", id = "checkbox5" })
+                            <label for="checkbox5">
+                                @Html.LabelFor(model => model.Other, htmlAttributes: new { @class = "control-label col-md-2", type = "checkbox", name = "mycheckbox", id = "mycheckbox", value = "0" })
+                            </label>
+
+                            @Html.TextAreaFor(model => model.Other, htmlAttributes: new { @class = "form-control", id = "mycheckboxdiv" })
+
+                            @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Abandoned, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Abandoned)
-                    @Html.ValidationMessageFor(model => model.Abandoned, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Poisoned, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Poisoned)
-                    @Html.ValidationMessageFor(model => model.Poisoned, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Underweight, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Underweight)
-                    @Html.ValidationMessageFor(model => model.Underweight, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Trapping, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Trapping)
-                    @Html.ValidationMessageFor(model => model.Trapping, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Water, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Water)
-                    @Html.ValidationMessageFor(model => model.Water, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Shot, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Shot)
-                    @Html.ValidationMessageFor(model => model.Shot, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Injury, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Injury)
-                    @Html.ValidationMessageFor(model => model.Injury, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Abuse, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Abuse)
-                    @Html.ValidationMessageFor(model => model.Abuse, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Other, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Other, new { htmlAttributes = new { @class = "form-control", @placeholder = "Explain" } })
-                @Html.ValidationMessageFor(model => model.Other, "", new { @class = "text-danger" })
-            </div>
-        </div>
         @*End of abuse checkbox area ^^*@
-        <div class="form-group">
+
+
+        @*Button for map location recording*@
+        <h3><strong>Property & Abuser Description</strong></h3>
+        <div class="form-group" id="section3">
+            
+                <p style="font-size:medium;">Click the "Record Location" button below to save location of abuse.</p>
+
+                <button type="button" class="btn btn-primary" onclick="Javascript:SetTextBoxValue()" id="btnChg">
+                    Record Location
+                </button>
+                <br /><br />
+            
+                <div id="map_canvas" style="height: 200px; width: 500px;"></div>
+              
+                <label id="txtCon"></label>
+
+                <form class="form-inline">
+                    <label class="sr-only" for="inlineFormInput">Address</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Enter Address Here">
+                    <br />
+                </form>
+        
+            @*Text boxes for Abuser and Property Description*@
+
+            @Html.LabelFor(model => model.PropertyDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PropertyDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide additional details here." } })
+                @Html.ValidationMessageFor(model => model.PropertyDescription, "", new { @class = "text-danger" })
+                <br />
+            </div>
+
             @Html.LabelFor(model => model.AbuseDetails, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AbuseDetails, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ex. 2 Dogs, 3 Cats." } })
                 @Html.ValidationMessageFor(model => model.AbuseDetails, "", new { @class = "text-danger" })
+                <br />
             </div>
-        </div>
 
-        <div class="form-group">
-            <button type="button" class="btn btn-primary" onclick="Javascript:SetTextBoxValue()">
-                Record the Location
-            </button>
-
-            <div id="map_canvas" style="height: 200px; width: 300px;"></div>
-
-            <label id="txtCon"></label>
-        </div>
-
-
-        <div class="form-group">
-            @*Text boxes for Abuser and Property Description*@
-            <h3><strong>Abuser and Property Description</strong></h3>
-            <h4><strong>Include street address if known</strong></h4>
-            @Html.LabelFor(model => model.PropertyDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PropertyDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide additional details here." } })
-                @Html.ValidationMessageFor(model => model.PropertyDescription, "", new { @class = "text-danger" })
-
-            </div>
-        </div>
-        <div class="form-group">
             @Html.LabelFor(model => model.AbuserDescription, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AbuserDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Physical attributes, age, etc." } })
                 @Html.ValidationMessageFor(model => model.AbuserDescription, "", new { @class = "text-danger" })
+                <br />
             </div>
-        </div>
 
-        <div class="form-group">
+
+
             @Html.LabelFor(model => model.OwnerName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OwnerName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name (Last Name)" } })
                 @Html.ValidationMessageFor(model => model.OwnerName, "", new { @class = "text-danger" })
+                <br />
             </div>
         </div>
+        @*end of Text boxes for Abuser and Property Description ^^*@
+
+        @*Contact Information section*@
+        <h3><strong>Your Information</strong></h3>
+        <div class="form-group" id="section4">
+            <br />
+            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name, Last Name" } })
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                <br />
+            </div>
 
 
-    
-                @*end of Text boxes for Abuser and Property Description ^^*@
+            @Html.LabelFor(model => model.ReportEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ReportEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "example@address.com" } })
+                @Html.ValidationMessageFor(model => model.ReportEmail, "", new { @class = "text-danger" })
+                <br />
+            </div>
 
-                <div class="form-group">
-                    @*Contact Information section*@
-                    <h3><strong>Contact Information</strong></h3>
-                    @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name, Last Name" } })
-                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
 
-                    </div>
+            @Html.LabelFor(model => model.ReportPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <!--Phone format-->
+                @Html.EditorFor(model => model.ReportPhone, new { htmlAttributes = new { @class = "form-control", id = "phone", placeholder = "(XXX) XXX XXXX" } })
+                @Html.ValidationMessageFor(model => model.ReportPhone, "", new { @class = "text-danger" })
+                <br />
+            </div>
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Contact, htmlAttributes: new { @class = "control-label col-md-2", id = "dropdown" })
+                <div class="col-md-10" style="padding-left:25px;">
+                    @Html.DropDownListFor(model => model.Contact, new List<SelectListItem>()
+                {
+                          new SelectListItem() { Text = "Yes", Value = "True" },
+                             new SelectListItem() { Text = "No", Value = "False"}
+                 },
+
+                        "Select.....", new { @id = "Contact", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Contact)
                 </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.ReportEmail, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.ReportEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "example@address.com" } })
-                            @Html.ValidationMessageFor(model => model.ReportEmail, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+            </div>
+            <div class="form-group">
+
+                @Html.LabelFor(model => model.Updates, htmlAttributes: new { @class = "control-label col-md-2", id = "dropdown" })
+                <div class="col-md-10" style="padding-left:25px;">
+                    @Html.DropDownListFor(model => model.Contact, new List<SelectListItem>()
+                {
+                          new SelectListItem() { Text = "Yes", Value = "True" },
+                             new SelectListItem() { Text = "No", Value = "False"}
+                 },
+
+                        "Select.....", new { @id = "Contact", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Contact)
+                </div>
+            </div>
+        </div>
+        @*end of Contact Information section*@
 
 
-                    @*<div class="form-group" >*@
-                    <!--Phone format-->
+        @* This is the added parts for google maps and getting the lat and long *@
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Latitude, new { id = "txtLat", style = "display: none; " })
+            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Longitude, new { id = "txtLng", style = "display: none; " })
+            @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+        </div>
+
+        @*Submit button*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*JS button confirmation message*@
+                <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" id="btnChg" />
+            </div>
+        </div>
+        @* end Submit button*@
+
+    </div>
 
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.ReportPhone, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.ReportPhone, new { htmlAttributes = new { @class = "form-control", id = "phone", placeholder = "(XXX) XXX XXXX" } })
-                            @Html.ValidationMessageFor(model => model.ReportPhone, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
+}
 
-                    <!--End format-->
+<div class="row">
+<div class="container">
+    <div class="col-md-6">
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Contact, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            <div class="checkbox">
-                                @Html.EditorFor(model => model.Contact)
-                                @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
+        @Html.ActionLink("Back to Home", "Index", "Home", new { @class = " btn btn-primary", role = "button", id = "btnChg" })
+    </div>
 
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Updates, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            <div class="checkbox">
-                                @Html.EditorFor(model => model.Updates)
-                                @Html.ValidationMessageFor(model => model.Updates, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
-                    @* This is the added parts for google maps and getting the lat and long *@
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.Latitude, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                        
-                            @Html.TextBoxFor(model => model.Latitude, new { id = "txtLat", style = "display: none; " })
-                            @Html.ValidationMessageFor(model => model.Latitude, "", new { @class = "text-danger" })
-                        
-                    </div>
-
-
-                    <div class="form-group">
-                        @*@Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-2" })*@
-                       
-                            @Html.TextBoxFor(model => model.Longitude, new { id = "txtLng", style = "display: none; " })
-                            @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
-                        
-                    </div>
-                   @*end of Contact Information section ^^*@
-        
-                    <div class="form-group">
-                        @*Submit button*@
-                        <div class="col-md-offset-2 col-md-10">
-                            @*JS button confirmation message*@
-                            <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" id="alertconfirm" />
-                        </div>
-                    </div>
-</div>
-                    @* end Submit button*@
-
-
-       
+    <!--Start Here-->
     
-}
+   <div class="col-md-6" id="bottomBtns" >
+
+            <a href="https://donatenow.networkforgood.org/GeneralDon?code=Donate%20Now%20Drop%20Down" class="btn btn-primary" role="button" target="_blank" id="btnChg"><span class="glyphicon glyphicon-gift"></span>&nbsp;Donate!</a>
+            <a href="https://clevelandapl.org/volunteer/foster-care/" class="btn btn-primary" role="button" target="_blank" id="btnChg"><span class="glyphicon glyphicon-home"></span> &nbsp; Foster!</a>
+            <a href="https://clevelandapl.org/adopt/" class="btn btn-primary" role="button" target="_blank" id="btnChg"><span class="glyphicon glyphicon-heart-empty"></span>&nbsp; Adopt!</a>
+        </div>
+</div>
+</div>
 
 
-                    <div>
-                        @Html.ActionLink("Back to Home", "Index", "Home", new { @class = " btn btn-primary", role = "button" })
-                    </div>
 
 
-@section Scripts {
-    <script src="~/Scripts/jquery.maskedinput.js"></script>
-    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
-    <script src="~/Scripts/PhoneFormat.js"></script>
-    <script src="~/Scripts/Site.js"></script>
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+
+        @* Google map api *@
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRa9eyYslzo7LNWf7OhxUVY0hAcrw4Qts" type="text/javascript"></script>
+        <script src="~/Scripts/googleMaps.js"></script>
+        <script src="~/Scripts/jquery.maskedinput.js"></script>
+        <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+        <script src="~/Scripts/PhoneFormat.js"></script>
+        <script src="~/Scripts/Site.js"></script>
+        @*@Scripts.Render("~/bundles/jqueryval")*@
+    }
