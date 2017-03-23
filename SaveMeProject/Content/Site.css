@@ -74,7 +74,7 @@ div#section2.form-group {
         text-decoration: underline;
 }
 
-#alertconfirm{
+#btnChg2{
      background-color: #F7882F;
     background-image: none;
     font-size: 16px;
@@ -83,7 +83,7 @@ div#section2.form-group {
     border-color: #F9C231;
 }
 
-#alertconfirm:hover{
+#btnChg2:hover{
      background-color: #0094ff;
      background-image: none;
      text-decoration: underline;
@@ -457,6 +457,13 @@ width: 640px;
    color:#F7882F  !important;
 }
 
+#aboutCon{
+      text-align:center;
+    align-items:center;
+    display:table-cell;
+    vertical-align:middle;
+    padding-top:5px;
+}
 /*footer CSS from Ryan*/
 div.navbar-fixed-top {
     background-color: #6B78AF;

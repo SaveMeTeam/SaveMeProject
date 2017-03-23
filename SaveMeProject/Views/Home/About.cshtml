@@ -1,7 +1,21 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "List Of Shelters";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<style>
+    .container{
+        font-size:22px;
+    }
+</style>
+<div class="container" id="aboutCon">
+    <h2>@ViewBag.Title.</h2>
+    <h3>Some Places that Help Our Fuzzy Friends</h3>
 
-<p>Use this area to provide additional information.</p>
+    <a href="http://www.northeastohiospca.org/"><p class="pcare">Northeast Ohio SPCA</p></a>
+    <a href="https://clevelandapl.org/"><p class="pcare">Cleveland APL</p></a>
+    <a href="http://www.city.cleveland.oh.us/CityofCleveland/Home/Government/CityAgencies/PublicSafety/AnimalControl"><p>Cleveland Animal Care and Control</p></a>
+    <a href="http://www.pawsandprayers.org/"><p class="pcare">Paws and Prayers Pet Rescue</p></a>
+    <a href="http://cuyahogadogs.com/"><p class="pcare">Cuyahoga County Animal Shelter</p></a>
+    <a href="http://www.pawsohio.org/"><p class="pcare">Public Animal Welfare Society</p></a>
+    <a href="http://www.forgotten4paws.com/about.html"><p class="pcare">Forgotten 4 Paws</p></a>
+    <a href="http://www.oneofakindpets.com/site/"><p class="pcare">One of a Kind Pet Rescue</p></a>
+</div>

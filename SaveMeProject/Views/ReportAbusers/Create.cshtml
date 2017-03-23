@@ -213,7 +213,7 @@
             <h5 style="color:#B12724;">* denotes a field that must be filled</h5>
             @Html.LabelFor(model => model.PropertyDescription, htmlAttributes: new { @class = "control-label col-md-2" })
 
-            <div class="col-md-10">
+            <div class="col-md-10" style="font-size:18px;">
                 @Html.EditorFor(model => model.PropertyDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide additional details here." } })
                 @Html.ValidationMessageFor(model => model.PropertyDescription, "*", new { @class = "text-danger" })
                 <br />
@@ -318,7 +318,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @*JS button confirmation message*@
-                <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" id="alertconfirm" />
+                <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" id="btnChg2" />
             </div>
         </div>
         @* end Submit button*@
