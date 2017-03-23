@@ -5,7 +5,8 @@
 
 @*Form Header*@
 <h1 class="text-center text-uppercase" style="font-size:60px; letter-spacing:3px;">Animal Cruelty Report Form</h1>
-<p class="text-center" style="font-size:medium">If you have witness any form of animal cruelty, please fill out the form below.</p>
+<p class="text-center" style="font-size:medium">If you witness any form of animal cruelty, please fill out the form below.</p>
+<p class="text-center"style="font-size:medium">If you see an animal in distress who needs immediate help please call 911 or local police.</p>
 
 @using (Html.BeginForm())
 {
@@ -21,6 +22,7 @@
         <div class="form-group" id="section1">
             <br />
             <div class="form-group">
+                <h5>* denotes a field that must be filled</h5>
                 @Html.LabelFor(model => model.Topic, htmlAttributes: new { @class = "control-label col-md-2", id = "dropdown" })
                 <div class="col-md-10" style="padding-left:0px;">
                     @Html.DropDownListFor(model => model.Topic, new List<SelectListItem>
@@ -30,7 +32,7 @@
                     new SelectListItem { Text = "Other Complaint", Value = "Other Complaint" },
                }, new { @class = "form-control" })
 
-                    @Html.ValidationMessageFor(model => model.Topic, "Select from menu.", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.Topic, "*Select from menu.", new { @class = "text-danger" })
                 </div>
             </div>
             <br />
@@ -38,7 +40,7 @@
                 @*DateTime Automatic Fill In*@
                 @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2", id = "dropdown" })
                 <div class="col-md-10" style="padding-left:0px;">
-                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt") } })
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control",@readonly="readonly", @Value = DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")} })
                     @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                     <br />
                 </div>
@@ -208,11 +210,12 @@
 
             @*Text boxes for Abuser and Property Description*@
 
+            <h5>* denotes a field that must be filled</h5>
             @Html.LabelFor(model => model.PropertyDescription, htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PropertyDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provide additional details here." } })
-                @Html.ValidationMessageFor(model => model.PropertyDescription, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PropertyDescription, "*", new { @class = "text-danger" })
                 <br />
             </div>
 

@@ -9,165 +9,280 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Topic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.Food)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Shelter)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Abandoned)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Poisoned)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Underweight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trapping)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Water)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Shot)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Injury)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Abuse)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Other)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AbuseDetails)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PropertyDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Latitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Longitude)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AbuserDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OwnerName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReportEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReportPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contact)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Updates)
-        </th>
-        <th></th>
-    </tr>
+<div class="container-fluid">
+    <div class="row ">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Topic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h2>Report</h2>
+                        <h4><strong>Topic: </strong>@Html.DisplayFor(modelItem => item.Topic)</h4>
+                        <h5>
+                            <strong>Date: </strong>@Html.DisplayFor(modelItem => item.Date)
+                        </h5>
+                        @if (item.Food == true)
+                        {
+                            <h5><strong>No food </strong>@Html.DisplayFor(modelItem => item.Food)</h5>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Food)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Shelter)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Abandoned)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Poisoned)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Underweight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trapping)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Water)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Shot)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Injury)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Abuse)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Other)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AbuseDetails)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PropertyDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Latitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Longitude)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AbuserDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OwnerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReportEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReportPhone)  
-                 </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Updates)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReportID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReportID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReportID })
-        </td>
-    </tr>
-}
+                        }
+                        @if (item.Water == true)
+                        {
+                            <h5><strong>No water</strong>@Html.DisplayFor(modelItem => item.Water)</h5>
 
-</table>
+                        }
+                        @if (item.Shelter == true)
+                        {
+                            <h5><strong>No shelter</strong>@Html.DisplayFor(modelItem => item.Shelter)</h5>
+
+                        }
+                        @if (item.Abandoned == true)
+                        {
+                            <h5><strong>Abandoned</strong>@Html.DisplayFor(modelItem => item.Abandoned)</h5>
+
+                        }
+                        @if (item.Poisoned == true)
+                        {
+                            <h5><strong>Poisoned</strong> => item.Poisoned)</h5>
+
+                        }
+                        @if (item.Underweight == true)
+                        {
+                            <h5><strong>Underweight</strong>@Html.DisplayFor(modelItem => item.Underweight)</h5>
+
+                        }
+                        @if (item.Trapping == true)
+                        {
+                            <h5><strong>Trapping</strong>@Html.DisplayFor(modelItem => item.Trapping)</h5>
+
+                        }
+                        @if (item.Shot == true)
+                        {
+                            <h5><strong>Shot</strong>@Html.DisplayFor(modelItem => item.Shot)</h5>
+
+                        }
+                        @if (item.Injury == true)
+                        {
+                            <h5><strong>Injured</strong>@Html.DisplayFor(modelItem => item.Injury)</h5>
+
+                        }
+                        @if (item.Other == true)
+                        {
+                            <h5><strong>Other</strong>@Html.DisplayFor(modelItem => item.Other)</h5>
+
+                        }
+
+                        <h5>
+                           <strong>Abuse Details: </strong> @Html.DisplayFor(modelItem => item.AbuseDetails)
+                        </h5>
+                        <h5>
+                          <strong>Description of the Property: </strong>  @Html.DisplayFor(modelItem => item.PropertyDescription)
+                        </h5>
+                        <h5>
+                            <strong>Latitude: </strong>
+                            @Html.DisplayFor(modelItem => item.Latitude)
+                        </h5>
+                        <h5>
+                            <strong>Longitude: </strong>
+                            @Html.DisplayFor(modelItem => item.Longitude)
+                        </h5>
+                        <h5>
+                            <strong>Description of the abuser: </strong>
+                            @Html.DisplayFor(modelItem => item.AbuserDescription)
+                        </h5>
+                        <h5>
+                            <strong>Owner Name: </strong>
+                            @Html.DisplayFor(modelItem => item.OwnerName)
+                        </h5>
+                        <h2>Reporter's Information</h2>
+                        <h5>
+                            <strong>Full Name: </strong>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </h5>
+                        <h5>
+                            <strong>Email address: </strong>
+                            @Html.DisplayFor(modelItem => item.ReportEmail)
+                        </h5>
+                        <h5>
+                            <strong>Phone number: </strong>
+                            @Html.DisplayFor(modelItem => item.ReportPhone)
+                        </h5>
+                        <h5>
+                            <strong>Contact reporter</strong>
+                            @Html.DisplayFor(modelItem => item.Contact)
+                        </h5>
+                        <h5>
+                            <strong>Updates</strong>
+                            @Html.DisplayFor(modelItem => item.Updates)
+                        </h5>
+                        @Html.ActionLink("Details", "Details", new { id = item.ReportID }) |
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Food)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shelter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abandoned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poisoned)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Underweight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trapping)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Water)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Injury)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abuse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Other)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbuseDetails)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PropertyDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AbuserDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Updates)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Food)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shelter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abandoned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poisoned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Underweight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trapping)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Injury)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abuse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbuseDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbuserDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportPhone)
+                     </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Updates)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ReportID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ReportID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ReportID })
+            </td>
+        </tr>
+    }
+
+    </table>*@

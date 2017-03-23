@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201703161403598_AddLngLat.Designer.cs">
       <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703221814312_AddOthertobool.cs" />
+    <Compile Include="Migrations\201703221814312_AddOthertobool.Designer.cs">
+      <DependentUpon>201703221814312_AddOthertobool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\App_Start\BundleConfig.cs" />
     <Compile Include="Properties\App_Start\FilterConfig.cs" />
     <Compile Include="Properties\App_Start\IdentityConfig.cs" />
@@ -249,6 +253,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\FormFactory\FormFactory.css" />
+    <Content Include="Content\images\1349x300 footer banner 123.png" />
     <Content Include="Content\images\animal-shelter-1558651_1920.jpg" />
     <Content Include="Content\images\bottom panel 2x.jpg" />
     <Content Include="Content\images\denisa.png" />
@@ -392,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703161403598_AddLngLat.resx">
       <DependentUpon>201703161403598_AddLngLat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221814312_AddOthertobool.resx">
+      <DependentUpon>201703221814312_AddOthertobool.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
