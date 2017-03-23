@@ -498,3 +498,8 @@ zoom:.6;
         background-image: none;
         color: #F7C331;
     }
+
+.text-danger {
+    color: #ea100b;
+    font-size: 30px;
+}
