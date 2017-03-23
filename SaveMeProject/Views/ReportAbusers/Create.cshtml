@@ -22,7 +22,7 @@
         <div class="form-group" id="section1">
             <br />
             <div class="form-group">
-                <h5>* denotes a field that must be filled</h5>
+                <h5 style="color:#B12724;">* denotes a field that must be filled</h5>
                 @Html.LabelFor(model => model.Topic, htmlAttributes: new { @class = "control-label col-md-2", id = "dropdown" })
                 <div class="col-md-10" style="padding-left:0px;">
                     @Html.DropDownListFor(model => model.Topic, new List<SelectListItem>
@@ -210,7 +210,7 @@
 
             @*Text boxes for Abuser and Property Description*@
 
-            <h5>* denotes a field that must be filled</h5>
+            <h5 style="color:#B12724;">* denotes a field that must be filled</h5>
             @Html.LabelFor(model => model.PropertyDescription, htmlAttributes: new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
@@ -318,7 +318,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @*JS button confirmation message*@
-                <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" id="btnChg" />
+                <input type="submit" value="Submit Report" class="btn btn-primary btn-lg" id="alertconfirm" />
             </div>
         </div>
         @* end Submit button*@

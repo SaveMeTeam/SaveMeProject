@@ -74,6 +74,21 @@ div#section2.form-group {
         text-decoration: underline;
 }
 
+#alertconfirm{
+     background-color: #F7882F;
+    background-image: none;
+    font-size: 16px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border-color: #F9C231;
+}
+
+#alertconfirm:hover{
+     background-color: #0094ff;
+     background-image: none;
+     text-decoration: underline;
+
+}
 hr {
     border-top: 3px solid #F9C231 !important;
     margin-bottom: 5px !important;
@@ -301,7 +316,7 @@ width: 640px;
 }
 .image_title a {
 	display: block;
-	color: black;
+	color: white;
 	text-decoration: none;
 	padding: 20px;
 	font-size: 16px;
